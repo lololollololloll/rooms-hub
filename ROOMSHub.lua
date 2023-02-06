@@ -15,6 +15,11 @@ Rayfield:Notify({
 },
 })
 
+
+
+
+
+
 Rayfield:Notify({
    Title = "Loading ROOMS Hub",
    Content = "Please wait....",
@@ -29,6 +34,8 @@ Rayfield:Notify({
    },
 },
 })
+
+
 
 
 local Window = Rayfield:CreateWindow({
@@ -56,6 +63,8 @@ local Window = Rayfield:CreateWindow({
       Key = "v68984aE89muvAk4548t8gh789A7FR"
    }
 })
+
+
 
 local Tab = Window:CreateTab("ENTITY NOTIFIER", 11533545133)
 
@@ -103,22 +112,16 @@ ModuleScripts.MainGame.RemoteListener.Modules["A90"].Name = "Baller"
    end,
 })
 
-local Tab = Window:CreateTab("TOOLS", 12342109094)
-
-local Section = Tab:CreateSection("AUTO RECHARGE (REQUIRES SHAKELIGHT)")
+local toolstab = Window:CreateTab("TOOLS", 12342109094)
 
 
-local Toggle = Tab:CreateToggle({
-   Name = "AUTO RECHARGE SHAKELIGHT",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
 
-	if Value == true then
+local Button = toolstab:CreateButton({
+   Name = "SKHAKELIGHT AUTO RECHARGE",
+   Callback = function()
+   local repeatTime = 5
+	
  local player = game:GetService("Players").LocalPlayer
-
-local repeatTime = 5
-
 while wait() do
 	wait(repeatTime)
 	if player.Backpack:FindFirstChild("Shakelight") then
@@ -126,7 +129,32 @@ while wait() do
 	elseif player.Character:FindFirstChild("Shakelight") then
 	player.Character:FindFirstChild("Shakelight").Remote:FireServer()
 	
-	end
-end,
+	
 end
+end
+   end,
+})
+
+
+
+local misc = Window:CreateTab("MISC", 12342114041)
+
+
+local Button = misc:CreateButton({
+   Name = "DISABLE ANTICHEAT",
+   Callback = function()
+   game.Players.LocalPlayer.Character.Collision:Destroy()
+task.wait(0.1)
+local RealHumanoid = game.Players.LocalPlayer.Character.Humanoid
+ local HumanoidBypass = game.Players.LocalPlayer.Character.Humanoid:Clone()
+HumanoidBypass.Parent = game.Players.LocalPlayer.Character
+RealHumanoid:Destroy()
+   end,
+})
+
+local Button = misc:CreateButton({
+   Name = "[NOT WORKING] Join Rooms",
+   Callback = function()
+
+   end,
 })
