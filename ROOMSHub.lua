@@ -60,7 +60,7 @@ local Window = Rayfield:CreateWindow({
       FileName = "ROOMSKEY",
       SaveKey = false,
       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = "de8a9AG89feeaAHjuYNUHhuahgtrh4r5th48"
+      Key = "de8a9AG89feeaAHjuYNUHh"
    }
 })
 
