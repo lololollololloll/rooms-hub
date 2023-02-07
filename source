@@ -174,3 +174,13 @@ local Button = misc:CreateButton({
 
    end,
 })
+
+local Keybind = Tab:CreateKeybind({
+   Name = "DestroyUI",
+   CurrentKeybind = "Delete",
+   HoldToInteract = false,
+   Flag = "Keybind1",
+   Callback = function(Keybind)
+   Rayfield:Destroy()
+   end,
+})
